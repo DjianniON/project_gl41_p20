@@ -1,0 +1,62 @@
+main {
+    margin: 0;
+    min-width: 100vh;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 7fr 1fr;
+}
+
+.left-panel {
+    display: grid;
+    grid-template-columns: 4vh 1fr;
+}
+
+.chat-title {
+    color: white;
+}
+
+.left-buttons {
+    padding-top: 10vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-panel {
+    height: 5vh;
+    width: 100%;
+    background: brown;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat {
+    height: 100%;
+    margin-right: 4vh;
+}
+
+.chat-content {
+    background: rgba(35, 26, 87, 0.78);
+    height: 85vh;
+    margin-bottom:10px;
+    overflow-y: scroll;
+}
+
+.chat-title {
+    height: 4vh;
+}
+
+.send-area {
+    height: 5vh;
+    background: aliceblue;
+    bottom: 0;
+}
+
+.right-panel{
+    background: yellow;
+    padding: 0 5vh;
+}
+
+.user-img {
+    border-radius: 50%;
+}

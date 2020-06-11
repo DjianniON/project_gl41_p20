@@ -1,6 +1,9 @@
-body{
-	background-color: rgb(204, 230, 255);
-	font-family: arial;
+main {
+	margin: 0;
+	min-width: 100vh;
+	min-height: 100vh;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
 .container{
@@ -11,8 +14,10 @@ body{
 
 .left-panel{
 	text-align: center;
-	margin-top: 40px;
-	margin-left: 150px;
+	display: flex;
+	justify-items: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 .cours-list{
@@ -24,23 +29,28 @@ body{
 
 .miniature{
 	padding: 100px;
-	margin-right: 100px;
-	margin-left: 100px;
-	margin-top: 20px;
 	border: 1px solid black;
 }
 
 .right-panel{
-	margin-top: 40px;
-	margin-right: 150px;
-	height: 500px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+	background: azure;
+	justify-content: center;
+	align-items: center;
+
 }
 
-.rejoindre{
+.right-section{
 	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background: rgba(74, 255, 175, 0.36);
+	height: 50%;
+}
+
+.right-section:nth-child(2n){
+	background: #415dff;
 }
 
 .form-group {
@@ -55,7 +65,7 @@ body{
 	overflow: hidden;
 	opacity: 1;
 	visibility: visible;
-	-webkit-transition: all .3s ease;
+	transition: all .3s ease;
 }
 
 .input-rjd, .input-name{
@@ -67,9 +77,6 @@ body{
 	box-shadow: none;
 }
 
-.creer{
-	text-align: center;
-}
 
 .go-btn {
 	background-color: rgba(0,0,0,0.1);
