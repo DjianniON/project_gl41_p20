@@ -1,6 +1,6 @@
 h1 {
 	display: flex;
-	color: #000000;
+	color: #ffffff;
 	font-size: 50px;
 	font-weight: 100;
 	margin-top: 100px;
@@ -9,7 +9,7 @@ h1 {
 }
 
 .main {
-	background-color: white;
+	background: #202a34;
 	width: 350px;
 	border-radius: 15px;
 	margin: 0 auto;
@@ -17,25 +17,27 @@ h1 {
 }
 
 .form-name {
-	width: 245px;
-	height: 25px;
-	margin:15px;
-	border: 1px solid black;
-	border-radius: 15px;
-	background-color: #fff;
-	overflow: hidden;
-	opacity: 1;
-	visibility: visible;
-	-webkit-transition: all .3s ease;
+	height: 5vh;
+	background: #669f9e;
+	border-radius: 50px;
+	bottom: 0;
+	margin: 10px;
 }
 
-.input-name{
-	border: 0;
-	text-align: left;
-	padding-top: 5px;
-	padding-left: 10px;
+.send-input{
+	display: block;
+	width: 90%;
+	height: 60%;
+	padding: 0.60em 0.1em 0.25em;
+	border: none;
+	border:0;
+	background: transparent;
+	margin-left: 3%;
+}
+
+.send-input:focus {
 	outline: none;
-	box-shadow: none;
+	color: #ffffff;
 }
 
 .container{

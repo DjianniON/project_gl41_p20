@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style/menu.css"/>
     <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
     <title>Application</title>
 </head>
 <body>
@@ -22,18 +23,26 @@
                 <h2>Rejoindre</h2>
                 <div class="container">
                     <div class="form-group">
-                        <textarea class="input-rjd" placeholder="ID du cours"></textarea>
+                        <input type="text" class="send-input" id="send-joinId" placeholder="Id du cours">
+                        <label class="send-input-label" for="send-joinId">
+                        </label>
                     </div>
-                    <button class="go-btn">Go</button>
+                    <span class="button-panel">
+                        <i class="fas fa-check" aria-hidden="true"></i>
+                    </span>
                 </div>
             </div>
             <div class="right-section">
                 <h2>Créer</h2>
                 <div class="container">
                     <div class="form-group">
-                        <textarea class="input-name" placeholder="Nom du cours"></textarea>
+                        <input type="text" class="send-input" id="send-createId" placeholder="Nom du cours">
+                        <label class="send-input-label" for="send-createId">
+                        </label>
                     </div>
-                    <button class="go-btn">Go</button>
+                    <span class="button-panel">
+                        <i class="fas fa-check" aria-hidden="true"></i>
+                    </span>
                 </div>
             </div>
         </section>

@@ -46,7 +46,7 @@ main {
 
 .send-area {
     height: 5vh;
-    background: #669F9E;
+    background: #669f9e;
     border-radius: 50px;
     bottom: 0;
     margin: 10px;
@@ -135,11 +135,6 @@ main {
 .send-input:focus {
     outline: none;
     color: #ffffff;
-}
-
-.chat-alert-button:hover {
-    background: #23ff56;
-    animation: ease-out 1ms;
 }
 
 .chat-message {
