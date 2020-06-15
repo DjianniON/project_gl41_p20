@@ -46,6 +46,7 @@ main {
 	justify-content: center;
 	flex-direction: column;
 	background: rgba(50, 168, 119, 0.35);
+	box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.4);
 	height: 50%;
 }
 
@@ -56,6 +57,7 @@ main {
 .form-group {
 	height: 4vh;
 	background: #ffffff;
+	box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.4);
 	border-radius: 50px;
 	bottom: 0;
 	margin-right: 10px;

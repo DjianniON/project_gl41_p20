@@ -8,21 +8,21 @@ main {
 
 .left-panel {
     display: grid;
-    grid-template-columns: 4vh 1fr;
+    grid-template-columns: 6vh 1fr;
 }
 
 .chat-title {
-    color: white
+    color: white;
 }
 
 .left-buttons {
-    padding-top: 6vh;
+    padding-top: 6.5vh;
     display: flex;
     flex-direction: column;
 }
 
 .button-panel {
-    height: 5vh;
+    height: 8vh;
     width: 100%;
     background: #192360;
     display: flex;
@@ -33,11 +33,16 @@ main {
 
 .button-panel:nth-child(odd) {
     background: #374a57;
+    box-shadow: -1px 2px 4px 3px rgba(0, 0, 0, 0.2) inset;
+}
+
+.button-panel:nth-child(even):hover {
+    background: #314bb8;
 }
 
 .chat {
     height: 100%;
-    margin-right: 4vh;
+    margin-right: 1vh;
 }
 
 .chat-content {
@@ -55,12 +60,14 @@ main {
 .send-area {
     height: 5vh;
     background: #669F9E;
+    box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.4);
     border-radius: 50px;
     bottom: 0;
 }
 
 .right-panel{
     background: #669F9E;
+    box-shadow: -1px 2px 5px 0 rgba(0, 0, 0, 0.7);
     padding: 0 5vh;
 }
 
@@ -72,11 +79,11 @@ main {
     display: block;
     width: 90%;
     height: 60%;
-    padding: 0.75em 0.1em 0.25em;
+    padding: 0.60em 0.2em 0.25em;
     border: none;
     border:0;
     background: transparent;
-    margin-left: 2%;
+    margin-left: 1%;
 }
 
 .send-input:focus {
@@ -87,6 +94,7 @@ main {
 .chat-alert-call {
     width: 100%;
     background: rgb(123, 136, 255);
+    box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.7);
     height: 8%;
     display: flex;
     justify-content: center;
@@ -100,13 +108,12 @@ main {
     border:none;
     padding:0.5em 0.8em;
     color: #000000;
-    background: #3dff90;
+    background: #2ee277;
     margin-left: 1.3em;
 }
 
 .chat-alert-button:hover {
-    background: #23ff56;
-    animation: ease-out 1ms;
+    background: #38ff8b;
 }
 
 .chat-message {
