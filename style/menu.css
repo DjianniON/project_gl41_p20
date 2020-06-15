@@ -18,6 +18,7 @@ main {
 	justify-items: center;
 	align-items: center;
 	flex-direction: column;
+	margin-top: 5%;
 }
 
 .cours-list{
@@ -30,6 +31,7 @@ main {
 .miniature{
 	padding: 100px;
 	border: 1px solid black;
+	margin-bottom: 2%;
 }
 
 .right-panel{
