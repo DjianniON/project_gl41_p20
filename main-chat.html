@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
 </head>
 <body class="animate__fadeIn animate__animated">
 <main>
@@ -93,8 +94,7 @@
         },
         methods:{
             sendMessage: function(){
-                let currentDate = new Date().toLocaleDateString();
-
+                let currentDate = moment().locale('fr').calendar();
                 let message= `<div class="chat-message-${this.messages.length%2}">
                        <p class="chat-message-user"> ${ this.user } <span class="chat-message-time">${currentDate}</span></p>
                        <p class="chat-message-content">${document.getElementById('send-chat').value}</p>
