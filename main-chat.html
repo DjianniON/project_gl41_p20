@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style/chat.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body class="animate__fadeIn animate__animated">
 <main>
@@ -19,11 +20,11 @@
                 <i class="fa fa-file" aria-hidden="true"></i>
             </span>
         </div>
-        <div class="chat">
+        <div class="chat" id="app">
             <div class="chat-title">
                 <h1>GL40</h1>
             </div>
-            <div class="chat-content">
+            <div class="chat-content" id="chat-content">
                 <div class="chat-alert-call">
                     <p>Une visio-conférence est en cours.</p>
                     <a class="chat-alert-button" href="main-visio.html">Rejoindre</a>
@@ -64,12 +65,14 @@
                     <p class="chat-message-content">Test</p>
                     <p class="chat-message-content">Test2</p>
                 </div>
+                <span v-for="message in messages">
+                    <span v-html="message"></span>
+                </span>
             </div>
             <div class="send-area">
-                    <input type="text" class="send-input" id="send-chat" placeholder="Votre message">
+                    <input type="text" class="send-input" id="send-chat" placeholder="Votre message" v-on:keyup.enter="sendMessage()">
                     <label class="send-input-label" for="send-chat">
                     </label>
-
             </div>
         </div>
     </section>
@@ -80,5 +83,32 @@
         </div>
     </section>
 </main>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            user: "Clément Couderc",
+            messages: [],
+        },
+        methods:{
+            sendMessage: function(){
+                let currentDate = new Date().toLocaleDateString();
+
+                let message= `<div class="chat-message-${this.messages.length%2}">
+                       <p class="chat-message-user"> ${ this.user } <span class="chat-message-time">${currentDate}</span></p>
+                       <p class="chat-message-content">${document.getElementById('send-chat').value}</p>
+                   </div>`;
+                this.messages.push(message);
+                document.getElementById('send-chat').value = "";
+            },
+        },
+        updated(){
+            let container = this.$el.querySelector("#chat-content");
+            container.scrollTop = container.scrollHeight;
+        }
+    })
+</script>
+
 </body>
 </html>

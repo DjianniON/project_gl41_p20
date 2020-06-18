@@ -122,7 +122,16 @@ main {
     padding: 0.3em 1.2em;
 }
 
-.chat-message:nth-child(odd) {
+.chat-message:nth-child(odd){
+    background: #253c57;
+}
+
+.chat-message-0{
+    padding: 0.3em 1.2em;
+}
+
+.chat-message-1{
+    padding: 0.3em 1.2em;
     background: #253c57;
 }
 
