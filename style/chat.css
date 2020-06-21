@@ -68,11 +68,10 @@ main {
     background: #669F9E;
     box-shadow: -1px 2px 5px 0 rgba(0, 0, 0, 0.7);
     padding: 0 5vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.user-img {
-    border-radius: 50%;
-}
 
 .send-input{
     display: block;
@@ -153,4 +152,23 @@ main {
     font-size: 1.5em;
     text-decoration: none;
     color: white;
+}
+
+.user-active {
+    font-weight: bold;
+    color: #2ee277;
+}
+
+.user-inactive {
+    font-weight: lighter;
+    color: #253c57;
+}
+
+.user-away {
+    color: #ffcf23;
+}
+
+.right-panel h4 {
+    margin-top: 2vh;
+    margin-bottom: 0;
 }
