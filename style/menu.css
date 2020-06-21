@@ -24,16 +24,31 @@ main {
 
 .cours-list{
 	text-align: center;
-	padding: 150px;
+	width: 50%;
 	margin: auto;
-	border: 1px solid black;
+	box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.4);
+}
+
+.cours-list-title {
+	margin: 0;
+	display: block;
+	padding: 2%;
+	text-decoration: none;
+	color: white;
+}
+
+.cours-list-title:hover {
+	background-color: #415dff;
+	cursor: pointer;
 }
 
 .video-miniature{
 	display: none;
-	padding: 100px;
-	border: 1px solid black;
-	margin-bottom: 2%;
+	background: violet;
+	width: 50%;
+	height: 30%;
+	margin-bottom: 10%;
+	box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.4);
 }
 
 .right-panel{
@@ -67,7 +82,7 @@ main {
 	margin-right: 10px;
 }
 
-.send-input{
+.send-input {
 	display: block;
 	width: 90%;
 	height: 60%;
@@ -86,9 +101,9 @@ main {
 .button-panel {
 	background-color: rgba(0,0,0,0.1);
 	color: rgba(255, 255, 255, 0.8);
-	width: 40px;
-	height: 30px;
-	border-radius: 15px;
+	width: 50px;
+	height: 40px;
+	border-radius: 25px;
 	cursor: pointer;
 	opacity: 1;
 	visibility: visible;

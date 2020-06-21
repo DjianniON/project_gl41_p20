@@ -97,8 +97,10 @@ main {
     top: 80%;
     left: 35%;
     width: 30%;
-    height: 50px;
+    height: 7vh;
     text-align: center;
+    animation-name: fadeIn;
+    animation-duration: 1s;
 }
 
 .option-button-panel{
@@ -142,6 +144,10 @@ main {
     color: #ffffff;
 }
 
+.send-input::placeholder {
+    color: #edfdff;
+}
+
 .chat-message {
     padding: 0.3em 0.5em;
 }
@@ -168,4 +174,24 @@ main {
     font-size: 0.6em;
     margin-left: 1.5em;
     font-weight: lighter;
+}
+
+.return-button::before {
+    display: none;
+}
+
+.visio-video:hover > .return-button {
+    display: block;
+    font-size: 1.5em;
+    text-decoration: none;
+    color: white;
+    margin: 1% 2%;
+    position: fixed;
+    box-shadow: -1px 2px 5px 1px rgba(0, 0, 0, 0.4);
+    animation-name: fadeIn;
+    animation-duration: 1s;
+}
+
+.visio-video:hover > .return-button::before {
+    display: block;
 }
