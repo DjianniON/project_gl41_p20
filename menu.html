@@ -2,52 +2,53 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style/menu.css"/>
-    <link rel="stylesheet" href="style/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link href="style/menu.css" rel="stylesheet"/>
+    <link href="style/main.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" rel="stylesheet"/>
     <title>Application</title>
 </head>
 <body class="animate__fadeIn animate__animated">
 <main>
-	<section class="left-panel">
-            <h2>Mes cours</h2>
-            <div class="cours-list">
-                <a href="main-chat.html" class="cours-list-title">GL40</a>
-                <a class="cours-list-title">LO43</a>
-            </div>
-            <div class="video-miniature">
+    <section class="left-panel">
+        <h2>Mes cours</h2>
+        <div class="cours-list">
+            <a class="cours-list-title" href="main-chat.html">GL40</a>
+            <a class="cours-list-title">LO43</a>
+        </div>
+        <div class="video-miniature">
 
-            </div>
-        </section>
-        <section class="right-panel">
-            <div class="right-section">
-                <h2>Rejoindre</h2>
-                <form class="container" action="main-chat.html">
-                    <div class="form-group">
-                        <input type="text" class="send-input" id="send-joinId" placeholder="Id du cours" required>
-                        <label class="send-input-label" for="send-joinId">
-                        </label>
-                    </div>
-                    <button type="submit" class="button-panel">
-                        <i class="fas fa-check" aria-hidden="true"></i>
-                    </button>
-                </form>
-            </div>
-            <div class="right-section">
-                <h2>Créer</h2>
-                <form class="container" action="main-chat.html">
-                    <div class="form-group">
-                        <input type="text" class="send-input" id="send-createId" placeholder="Nom du cours" required>
-                        <label class="send-input-label" for="send-createId">
-                        </label>
-                    </div>
-                    <button type="submit" class="button-panel">
-                        <i class="fas fa-check" aria-hidden="true"></i>
-                    </button>
-                </form>
-            </div>
-        </section>
+        </div>
+        <a class="disconnect-text" href="index.html">Se déconnecter</a>
+    </section>
+    <section class="right-panel">
+        <div class="right-section">
+            <h2>Rejoindre</h2>
+            <form action="main-chat.html" class="container">
+                <div class="form-group">
+                    <input class="send-input" id="send-joinId" placeholder="Id du cours" required type="text">
+                    <label class="send-input-label" for="send-joinId">
+                    </label>
+                </div>
+                <button class="button-panel" type="submit">
+                    <i aria-hidden="true" class="fas fa-check"></i>
+                </button>
+            </form>
+        </div>
+        <div class="right-section">
+            <h2>Créer</h2>
+            <form action="main-chat.html" class="container">
+                <div class="form-group">
+                    <input class="send-input" id="send-createId" placeholder="Nom du cours" required type="text">
+                    <label class="send-input-label" for="send-createId">
+                    </label>
+                </div>
+                <button class="button-panel" type="submit">
+                    <i aria-hidden="true" class="fas fa-check"></i>
+                </button>
+            </form>
+        </div>
+    </section>
 </main>
 
 

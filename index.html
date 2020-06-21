@@ -5,30 +5,26 @@
 		<link rel="stylesheet" href="style/index.css" />
 		<link rel="stylesheet" href="style/main.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
 		<title>Login Page</title>	
 	</head>
 
 <body class="animate__fadeIn animate__animated">
-		<h1>Login</h1>	
-	
-	<section>
-		<div class="main">
-			<div class="form-name">
-				<input type="text" class="send-input" id="send-name" placeholder="Votre nom">
-				<label class="send-input-label" for="send-name">
-				</label>
-			</div>
-			<div class="container">
-				<img src="img/captcha.png" width="257" height="75">
-				<button class="ok-btn" onclick="window.location.href='menu.html';">Ok</button>
-			</div>
-		</div>
-	</section>
-	
-	
-	<footer>
+	<h1>Projet GL40</h1>
+	<section class="main">
+			<label class="send-input-label" for="send-name">Se connecter</label>
 
+			<form class="name-line" action="menu.html">
+				<div class="form-name">
+					<input type="text" class="send-input" id="send-name" placeholder="Votre nom" required>
+					<button type="submit" class="validation-button"><i class="fas fa-arrow-right"></i></button>
+				</div>
+
+			</form>
+		<img class="captcha-img" src="img/captcha.png" alt="captcha image">
+	</section>
+	<footer>
+		<p class="footer-text">Clément Couderc & Djianni Orru-Nowicki - GL40 P20</p>
 	</footer>
-	
 </body>
 </html>
