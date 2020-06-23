@@ -172,3 +172,50 @@ main {
     margin-top: 2vh;
     margin-bottom: 0;
 }
+
+.file-panel {
+    background: #374a57;
+    height: 90vh;
+}
+
+.file-content {
+    height: 90%;
+    overflow-y: scroll;
+}
+
+.file-bar {
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.file-bar-button {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    margin: 2%;
+    display: block;
+    cursor: pointer;
+}
+
+.file-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.file-info-icon {
+    display: none;
+}
+
+.file-info:hover > .file-info-icon {
+    display: block;
+}
+
+.chat-panel {
+    display: none;
+}
+
+#file-upload  {
+    display: none;
+}
