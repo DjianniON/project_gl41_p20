@@ -66,13 +66,17 @@
             </div>
         </div>
     </section>
-    <section class="right-panel">
+    <section class="right-panel" id="appVisio">
         <div class="visio-video">
             <a href="menu.html" class="far fa-arrow-alt-circle-left return-button"></a>
             <div class="visio-options">
                 <span class="option-button-panel">
-                    <i class="fas fa-volume-up" aria-hidden="true"></i>
-                    <i class="fas fa-microphone" aria-hidden="true"></i>
+                    <i class="fas fa-volume-up" aria-hidden="true" v-if="!speakerMute" @click="speakerMute = true"></i>
+                    <i class="fas fa-volume-mute" aria-hidden="true" v-if="speakerMute" @click="speakerMute = false"></i>
+
+                    <i class="fas fa-microphone" aria-hidden="true" v-if="!micMute" @click="micMute = true"></i>
+                    <i class="fas fa-microphone-slash" aria-hidden="true" v-if="micMute" @click="micMute = false"></i>
+
                     <a href="main-chat.html">
                         <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
                     </a>
@@ -104,6 +108,14 @@
             let container = this.$el.querySelector("#chat-content");
             container.scrollTop = container.scrollHeight;
         }
+    })
+
+    var appVisio = new Vue({
+        el: "#appVisio",
+        data: {
+            speakerMute : false,
+            micMute : false,
+        },
     })
 </script>
 </body>
