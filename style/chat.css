@@ -75,6 +75,9 @@ main {
 .visio-button {
     border-radius: 30px;
     border:none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding:0.8em 1.3em;
     color: #ffffff;
     background: #971f1f;
@@ -225,12 +228,12 @@ main {
     margin: 0.5vh;
 }
 
-.fa-angle-down{
-    margin-left: 87%;
+.fa-times{
+    margin-left: 90%;
     color: #ffffff;
 }
 
-.fa-angle-down:hover{
+.fa-times:hover{
     color: #647780;
 }
 

@@ -97,8 +97,8 @@
             </span><![endif]-->
         <div class="user-span">
             <div class="user-options" v-if="booleansOptions[0]" @close="booleansOptions.splice(0, 1, false)">
-                <i class="fas fa-angle-down" aria-hidden="true" @click="booleansOptions.splice(0, 1, false)"></i>
-                <label for="Privileges">Privilèges</label>
+                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(0, 1, false)"></i>
+                <label for="Privileges">Modérateur</label>
                 <input type="checkbox" id="Privileges" name="Privileges">
                 <p class="kickuser" @click="">Exclure</p>
             </div>
@@ -106,8 +106,8 @@
         </div>
         <div class="user-span">
             <div class="user-options" v-if="booleansOptions[1]" @close="booleansOptions.splice(1, 1, false)">
-                <i class="fas fa-angle-down" aria-hidden="true" @click="booleansOptions.splice(1, 1, false)"></i>
-                <label for="Privileges">Privilèges</label>
+                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(1, 1, false)"></i>
+                <label for="Privileges">Modérateur</label>
                 <input type="checkbox" id="Privileges" name="Privileges">
                 <p class="kickuser" @click="">Exclure</p>
             </div>
@@ -115,8 +115,8 @@
         </div>
         <div class="user-span">
             <div class="user-options" v-if="booleansOptions[2]" @close="booleansOptions.splice(2, 1, false)">
-                <i class="fas fa-angle-down" aria-hidden="true" @click="booleansOptions.splice(2, 1, false)"></i>
-                <label for="Privileges">Privilèges</label>
+                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(2, 1, false)"></i>
+                <label for="Privileges">Modérateur</label>
                 <input type="checkbox" id="Privileges" name="Privileges">
                 <p class="kickuser" @click="">Exclure</p>
             </div>
@@ -124,8 +124,8 @@
         </div>
         <div class="user-span">
             <div class="user-options" v-if="booleansOptions[5]" @close="booleansOptions.splice(5, 1, false)">
-                <i class="fas fa-angle-down" aria-hidden="true" @click="booleansOptions.splice(5, 1, false)"></i>
-                <label for="Privileges">Privilèges</label>
+                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(5, 1, false)"></i>
+                <label for="Privileges">Modérateur</label>
                 <input type="checkbox" id="Privileges" name="Privileges">
                 <p class="kickuser" @click="">Exclure</p>
             </div>
@@ -133,8 +133,8 @@
         </div>
         <div class="user-span">
             <div class="user-options" v-if="booleansOptions[3]" @close="booleansOptions.splice(3, 1, false)">
-                <i class="fas fa-angle-down" aria-hidden="true" @click="booleansOptions.splice(3, 1, false)"></i>
-                <label for="Privileges">Privilèges</label>
+                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(3, 1, false)"></i>
+                <label for="Privileges">Modérateur</label>
                 <input type="checkbox" id="Privileges" name="Privileges">
                 <p class="kickuser" @click="">Exclure</p>
             </div>
@@ -143,8 +143,8 @@
             <h4>Hors ligne</h4>
         <div class="user-span">
             <div class="user-options" v-if="booleansOptions[4]" @close="booleansOptions.splice(4, 1, false)">
-                <i class="fas fa-angle-down" aria-hidden="true" @click="booleansOptions.splice(4, 1, false)"></i>
-                <label for="Privileges">Privilèges</label>
+                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(4, 1, false)"></i>
+                <label for="Privileges">Modérateur</label>
                 <input type="checkbox" id="Privileges" name="Privileges">
                 <p class="kickuser" @click="">Exclure</p>
             </div>
@@ -189,8 +189,8 @@
 
                 let user = `<div class="user-span">
                                 <div class="user-options" v-if="booleansOptions[${this.users.length}]" @close="booleansOptions.splice(${this.users.length}, 1, false)">
-                                    <i class="fas fa-angle-down" aria-hidden="true" @click="booleansOptions.splice(${this.users.length}, 1, false)"></i>
-                                    <label for="Privileges">Privilèges</label>
+                                    <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(${this.users.length}, 1, false)"></i>
+                                    <label for="Privileges">Modérateur</label>
                                     <input type="checkbox" id="Privileges" name="Privileges">
                                     <p class="kickuser" @click="">Exclure</p>
                                 </div>
