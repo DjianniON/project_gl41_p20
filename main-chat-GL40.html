@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Cours X</title>
     <link href="style/main.css" rel="stylesheet">
-    <link href="style/chat.css" rel="stylesheet">
+    <link href="style/chat-GL40.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -30,7 +30,7 @@
                 <div class="chat-content" id="chat-content">
                     <div class="chat-alert-call">
                         <p>Une visio-conférence est en cours.</p>
-                        <a class="chat-alert-button" href="main-visio.html">Rejoindre</a>
+                        <a class="chat-alert-button" href="main-visio-GL40.html">Rejoindre</a>
                     </div>
                     <div class="chat-message">
                         <p class="chat-message-user">Djianni Orru-Nowicki<span
@@ -85,7 +85,6 @@
                         <input class="send-input" id="send-chat" placeholder="Votre message" type="text"
                                v-on:keyup.enter="sendMessage()">
                     </div>
-                    <a class="visio-button" href="main-visio.html">Visioconférence</a>
                 </div>
             </div>
         </div>
@@ -97,8 +96,8 @@
             </span><![endif]-->
         <div class="user-span">
             <div class="user-options" v-if="booleansOptions[0]" @close="booleansOptions.splice(0, 1, false)">
-                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(0, 1, false)"></i>
-                <label for="Privileges">Modérateur</label>
+                <i class="fas fa-angle-down" aria-hidden="true" @click="booleansOptions.splice(0, 1, false)"></i>
+                <label for="Privileges">Privilèges</label>
                 <input type="checkbox" id="Privileges" name="Privileges">
                 <p class="kickuser" @click="">Exclure</p>
             </div>
@@ -106,8 +105,8 @@
         </div>
         <div class="user-span">
             <div class="user-options" v-if="booleansOptions[1]" @close="booleansOptions.splice(1, 1, false)">
-                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(1, 1, false)"></i>
-                <label for="Privileges">Modérateur</label>
+                <i class="fas fa-angle-down" aria-hidden="true" @click="booleansOptions.splice(1, 1, false)"></i>
+                <label for="Privileges">Privilèges</label>
                 <input type="checkbox" id="Privileges" name="Privileges">
                 <p class="kickuser" @click="">Exclure</p>
             </div>
@@ -115,8 +114,8 @@
         </div>
         <div class="user-span">
             <div class="user-options" v-if="booleansOptions[2]" @close="booleansOptions.splice(2, 1, false)">
-                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(2, 1, false)"></i>
-                <label for="Privileges">Modérateur</label>
+                <i class="fas fa-angle-down" aria-hidden="true" @click="booleansOptions.splice(2, 1, false)"></i>
+                <label for="Privileges">Privilèges</label>
                 <input type="checkbox" id="Privileges" name="Privileges">
                 <p class="kickuser" @click="">Exclure</p>
             </div>
@@ -124,8 +123,8 @@
         </div>
         <div class="user-span">
             <div class="user-options" v-if="booleansOptions[5]" @close="booleansOptions.splice(5, 1, false)">
-                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(5, 1, false)"></i>
-                <label for="Privileges">Modérateur</label>
+                <i class="fas fa-angle-down" aria-hidden="true" @click="booleansOptions.splice(5, 1, false)"></i>
+                <label for="Privileges">Privilèges</label>
                 <input type="checkbox" id="Privileges" name="Privileges">
                 <p class="kickuser" @click="">Exclure</p>
             </div>
@@ -133,8 +132,8 @@
         </div>
         <div class="user-span">
             <div class="user-options" v-if="booleansOptions[3]" @close="booleansOptions.splice(3, 1, false)">
-                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(3, 1, false)"></i>
-                <label for="Privileges">Modérateur</label>
+                <i class="fas fa-angle-down" aria-hidden="true" @click="booleansOptions.splice(3, 1, false)"></i>
+                <label for="Privileges">Privilèges</label>
                 <input type="checkbox" id="Privileges" name="Privileges">
                 <p class="kickuser" @click="">Exclure</p>
             </div>
@@ -143,8 +142,8 @@
             <h4>Hors ligne</h4>
         <div class="user-span">
             <div class="user-options" v-if="booleansOptions[4]" @close="booleansOptions.splice(4, 1, false)">
-                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(4, 1, false)"></i>
-                <label for="Privileges">Modérateur</label>
+                <i class="fas fa-angle-down" aria-hidden="true" @click="booleansOptions.splice(4, 1, false)"></i>
+                <label for="Privileges">Privilèges</label>
                 <input type="checkbox" id="Privileges" name="Privileges">
                 <p class="kickuser" @click="">Exclure</p>
             </div>
@@ -189,8 +188,8 @@
 
                 let user = `<div class="user-span">
                                 <div class="user-options" v-if="booleansOptions[${this.users.length}]" @close="booleansOptions.splice(${this.users.length}, 1, false)">
-                                    <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(${this.users.length}, 1, false)"></i>
-                                    <label for="Privileges">Modérateur</label>
+                                    <i class="fas fa-angle-down" aria-hidden="true" @click="booleansOptions.splice(${this.users.length}, 1, false)"></i>
+                                    <label for="Privileges">Privilèges</label>
                                     <input type="checkbox" id="Privileges" name="Privileges">
                                     <p class="kickuser" @click="">Exclure</p>
                                 </div>

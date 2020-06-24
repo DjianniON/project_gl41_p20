@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visio X</title>
+    <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/visio.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+
+</head>
+<body class="animate__fadeIn animate__animated">
+<main>
+    <section class="left-panel">
+        <div class="top-buttons">
+            <span class="button-panel">
+                <i class="fa fa-comments" aria-hidden="true"></i>
+            </span>
+            <span class="button-panel">
+                <i class="fa fa-file" aria-hidden="true"></i>
+            </span>
+        </div>
+        <div class="chat" id="app">
+            <div class="chat-content" id="chat-content">
+                <div class="chat-message">
+                    <p class="chat-message-user">Djianni Orru-Nowicki<span class="chat-message-time">Hier à 14:30</span></p>
+                    <p class="chat-message-content">Test</p>
+                </div>
+                <div class="chat-message">
+                    <p class="chat-message-user">Clément Couderc<span class="chat-message-time">Hier à 14:32</span></p>
+                    <p class="chat-message-content">Test</p>
+                    <p class="chat-message-content">Test2</p>
+                </div>
+                <div class="chat-message">
+                    <p class="chat-message-user">Djianni Orru-Nowicki<span class="chat-message-time">Hier à 14:30</span></p>
+                    <p class="chat-message-content">Test</p>
+                </div>
+                <div class="chat-message">
+                    <p class="chat-message-user">Clément Couderc<span class="chat-message-time">Hier à 14:32</span></p>
+                    <p class="chat-message-content">Test</p>
+                    <p class="chat-message-content">Test2</p>
+                </div>
+                <div class="chat-message">
+                    <p class="chat-message-user">Djianni Orru-Nowicki<span class="chat-message-time">Hier à 14:30</span></p>
+                    <p class="chat-message-content">Test</p>
+                </div>
+                <div class="chat-message">
+                    <p class="chat-message-user">Clément Couderc<span class="chat-message-time">Hier à 14:32</span></p>
+                    <p class="chat-message-content">Test</p>
+                    <p class="chat-message-content">Test2</p>
+                </div>
+                <div class="chat-message">
+                    <p class="chat-message-user">Djianni Orru-Nowicki<span class="chat-message-time">Hier à 14:30</span></p>
+                    <p class="chat-message-content">Test</p>
+                </div>
+                <span v-for="message in messages">
+                    <span v-html="message"></span>
+                </span>
+            </div>
+            <div class="send-area">
+                <input type="text" class="send-input" id="send-chat" placeholder="Votre message" v-on:keyup.enter="sendMessage()">
+                <label class="send-input-label" for="send-chat">
+                </label>
+            </div>
+        </div>
+    </section>
+    <section class="right-panel" id="appVisio">
+        <div class="visio-video">
+            <a href="menu.html" class="far fa-arrow-alt-circle-left return-button"></a>
+            <div class="visio-options">
+                <span class="option-button-panel">
+                    <i class="fas fa-volume-up" aria-hidden="true" v-if="!speakerMute" @click="speakerMute = true"></i>
+                    <i class="fas fa-volume-mute" aria-hidden="true" v-if="speakerMute" @click="speakerMute = false"></i>
+
+                    <i class="fas fa-microphone" aria-hidden="true" v-if="!micMute" @click="micMute = true"></i>
+                    <i class="fas fa-microphone-slash" aria-hidden="true" v-if="micMute" @click="micMute = false"></i>
+
+                    <a href="main-chat-LO43.html">
+                        <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            user: "Clément Couderc",
+            messages: [],
+        },
+        methods:{
+            sendMessage: function(){
+                let currentDate = moment().locale('fr').calendar();
+                let message= `<div class="chat-message-${this.messages.length%2}">
+                       <p class="chat-message-user"> ${ this.user } <span class="chat-message-time">${currentDate}</span></p>
+                       <p class="chat-message-content">${document.getElementById('send-chat').value}</p>
+                   </div>`;
+                this.messages.push(message);
+                document.getElementById('send-chat').value = "";
+            },
+        },
+        updated(){
+            let container = this.$el.querySelector("#chat-content");
+            container.scrollTop = container.scrollHeight;
+        }
+    })
+
+    var appVisio = new Vue({
+        el: "#appVisio",
+        data: {
+            speakerMute : false,
+            micMute : false,
+        },
+    })
+</script>
+</body>
+</html>
