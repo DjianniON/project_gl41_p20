@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Visio X</title>
+    <title>Visio GL40</title>
     <link rel="stylesheet" href="style/main.css">
-    <link rel="stylesheet" href="style/visio.css">
+    <link rel="stylesheet" href="style/visio-files.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -21,6 +21,28 @@
             <span class="button-panel">
                 <i class="fa fa-file" aria-hidden="true"></i>
             </span>
+        </div>
+        <div class="file-panel">
+            <div class="file-bar">
+                <label class="file-bar-button" for="file-upload"><i class="fas fa-plus"></i> Ajouter un fichier <input type="file" id="file-upload"></label>
+                <a class="file-bar-button" href="#"><i class="fas fa-download"></i> Télécharger le cours entier</a>
+            </div>
+            <div class="file-content">
+                <div class="file-info-menu">
+                    <p>Nom <i class="fas fa-angle-down"></i></p>
+                    <p>Date du fichier <i class="fas fa-angle-down"></i></p>
+                </div>
+                <div class="file-info">
+                    <p class="file-info-title">Dummy_file.pdf</p>
+                    <p class="file-info-date">23/06/2020</p>
+                    <p class="file-info-icon"><i class="fas fa-download"></i></p>
+                </div>
+                <div class="file-info">
+                    <p class="file-info-title">Dummy_file.pdf</p>
+                    <p class="file-info-date">23/06/2020</p>
+                    <p class="file-info-icon"><i class="fas fa-download"></i></p>
+                </div>
+            </div>
         </div>
         <div class="chat" id="app">
             <div class="chat-content" id="chat-content">

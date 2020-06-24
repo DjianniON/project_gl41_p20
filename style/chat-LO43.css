@@ -25,19 +25,20 @@ main {
 .button-panel {
     height: 8vh;
     width: 100%;
-    background: #192360;
+    background: #374a57;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
+    box-shadow: -1px 2px 4px 3px rgba(0, 0, 0, 0.2);
 }
 
 .button-panel:nth-child(odd) {
-    background: #374a57;
+    background: #192360;
     box-shadow: -1px 2px 4px 3px rgba(0, 0, 0, 0.2) inset;
 }
 
-.button-panel:nth-child(even):hover {
+.button-panel:nth-child(odd):hover {
     background: #314bb8;
 }
 
