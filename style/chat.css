@@ -199,9 +199,12 @@ main {
     cursor: pointer;
 }
 
-.file-info {
-    display: flex;
-    justify-content: space-between;
+.file-info, .file-info-menu {
+    display: grid;
+    grid-template-columns: 0.5fr 3fr 0.5fr;
+    text-align: center;
+    align-items: center;
+    padding-right: 2%;
 }
 
 .file-info-icon {
@@ -210,6 +213,19 @@ main {
 
 .file-info:hover > .file-info-icon {
     display: block;
+    cursor: pointer;
+    text-align: right;
+}
+
+.file-info:nth-child(even) {
+    background: #253c57;
+}
+
+.file-info:hover {
+    font-weight: bold;
+    background-color: #415dff;
+    animation-name: fadeIn;
+    animation-duration: 0.25s;
 }
 
 .chat-panel {
