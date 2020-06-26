@@ -166,16 +166,15 @@
         template: `<div class="user-span">
                                 <div class="user-options" v-if="isShowed"
                                     @close="isShowed = false">
-                                    <i class="fas fa-times" aria-hidden="true" @click="isShowed = false"></i>
+                                    <i class="fas fa-times" aria-hidden="true" @click="isShowed = false; state=temp"></i>
                                     <label for="Privileges">Privilèges</label>
                                     <input type="checkbox" id="Privileges" name="Privileges">
                                     <p class="kickuser" @click="kickUser(name); isShowed = false">Exclure</p>
                                 </div>
-                                <p :class="'user-name user-'+state" @click="isShowed = true"
-                                    v-bind:class="{ 'user-selected': isShowed}"> {{name}}</p>
+                                <p :class="'user-name user-'+ state" @click="isShowed = true; classSelected()"> {{name}}</p>
                             </div>`,
         name:'user',
-        props: ['name', 'state'],
+        props: ['name', 'state', 'temp'],
         data: function () {
             return{
                 isShowed: false,
@@ -185,6 +184,10 @@
             kickUser: function (user) {
                 this.$emit('user_kicked', user);
             },
+            classSelected: function () {
+                this.temp = this.state;
+                this.state = 'selected';
+            }
         }
     })
 
