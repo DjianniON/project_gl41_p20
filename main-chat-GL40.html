@@ -51,6 +51,7 @@
             <div class="chat-title">
                 <h1>GL40</h1>
             </div>
+
             <div class="chat-panel">
                 <div class="chat-content" id="chat-content">
                     <div class="chat-alert-call">
@@ -115,65 +116,16 @@
         </div>
     </section>
     <section class="right-panel" id="appUsers">
-            <h3>Utilisateurs</h3>
-        <!--[if expression]> <span v-for="user in users">
-                <span v-html="user"></span>
-            </span><![endif]-->
-        <div class="user-span">
-            <div class="user-options" v-if="booleansOptions[0]" @close="booleansOptions.splice(0, 1, false)">
-                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(0, 1, false)"></i>
-                <label for="Privileges">Privilèges</label>
-                <input type="checkbox" id="Privileges" name="Privileges">
-                <p class="kickuser" @click="">Exclure</p>
-            </div>
-            <p class="user-name user-active" @click="booleansOptions.splice(0, 1, true)" v-bind:class="{ 'user-selected': booleansOptions[0] }">Clément Couderc</p>
-        </div>
-        <div class="user-span">
-            <div class="user-options" v-if="booleansOptions[1]" @close="booleansOptions.splice(1, 1, false)">
-                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(1, 1, false)"></i>
-                <label for="Privileges">Privilèges</label>
-                <input type="checkbox" id="Privileges" name="Privileges">
-                <p class="kickuser" @click="">Exclure</p>
-            </div>
-            <p class="user-name user-active" @click="booleansOptions.splice(1, 1, true)" v-bind:class="{ 'user-selected': booleansOptions[1] }">Charline Pascal</p>
-        </div>
-        <div class="user-span">
-            <div class="user-options" v-if="booleansOptions[2]" @close="booleansOptions.splice(2, 1, false)">
-                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(2, 1, false)"></i>
-                <label for="Privileges">Privilèges</label>
-                <input type="checkbox" id="Privileges" name="Privileges">
-                <p class="kickuser" @click="">Exclure</p>
-            </div>
-            <p class="user-name user-active" @click="booleansOptions.splice(2, 1, true)" v-bind:class="{ 'user-selected': booleansOptions[2] }">Vladimir Lemarché</p>
-        </div>
-        <div class="user-span">
-            <div class="user-options" v-if="booleansOptions[5]" @close="booleansOptions.splice(5, 1, false)">
-                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(5, 1, false)"></i>
-                <label for="Privileges">Privilèges</label>
-                <input type="checkbox" id="Privileges" name="Privileges">
-                <p class="kickuser" @click="">Exclure</p>
-            </div>
-            <p class="user-name user-away" @click="booleansOptions.splice(5, 1, true)" v-bind:class="{ 'user-selected': booleansOptions[5] }">Djianni Orru-Nowicki</p>
-        </div>
-        <div class="user-span">
-            <div class="user-options" v-if="booleansOptions[3]" @close="booleansOptions.splice(3, 1, false)">
-                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(3, 1, false)"></i>
-                <label for="Privileges">Privilèges</label>
-                <input type="checkbox" id="Privileges" name="Privileges">
-                <p class="kickuser" @click="">Exclure</p>
-            </div>
-            <p class="user-name user-away" @click="booleansOptions.splice(3, 1, true)" v-bind:class="{ 'user-selected': booleansOptions[3] }">Patrice Lagard</p>
-        </div>
-            <h4>Hors ligne</h4>
-        <div class="user-span">
-            <div class="user-options" v-if="booleansOptions[4]" @close="booleansOptions.splice(4, 1, false)">
-                <i class="fas fa-times" aria-hidden="true" @click="booleansOptions.splice(4, 1, false)"></i>
-                <label for="Privileges">Privilèges</label>
-                <input type="checkbox" id="Privileges" name="Privileges">
-                <p class="kickuser" @click="">Exclure</p>
-            </div>
-            <p class="user-name user-inactive" @click="booleansOptions.splice(4, 1, true)" v-bind:class="{ 'user-selected': booleansOptions[4] }">Marc Lachaise</p>
-        </div>
+        <h3>Utilisateurs</h3>
+        <h5>Actif(s)</h5>
+        <bloc-user v-for="user in users" v-if="states[users.indexOf(user)]=='active'" v-bind:name="user" v-bind:state="states[users.indexOf(user)]"
+                   v-on:user_kicked="deleteUser"></bloc-user>
+        <h5>Absent(s)</h5>
+        <bloc-user v-for="user in users" v-if="states[users.indexOf(user)]=='away'" v-bind:name="user" v-bind:state="states[users.indexOf(user)]"
+                   v-on:user_kicked="deleteUser"></bloc-user>
+        <h5>Inactif(s)</h5>
+        <bloc-user v-for="user in users" v-if="states[users.indexOf(user)]=='inactive'" v-bind:name="user" v-bind:state="states[users.indexOf(user)]"
+                   v-on:user_kicked="deleteUser"></bloc-user>
     </section>
 </main>
 
@@ -211,33 +163,51 @@
         }
     })
 
+    Vue.component('bloc-user', {
+        template: `<div class="user-span">
+                                <div class="user-options" v-if="isShowed"
+                                    @close="isShowed = false">
+                                    <i class="fas fa-times" aria-hidden="true" @click="isShowed = false"></i>
+                                    <label for="Privileges">Privilèges</label>
+                                    <input type="checkbox" id="Privileges" name="Privileges">
+                                    <p class="kickuser" @click="kickUser(name); isShowed = false">Exclure</p>
+                                </div>
+                                <p :class="'user-name user-'+state" @click="isShowed = true"
+                                    v-bind:class="{ 'user-selected': isShowed}"> {{name}}</p>
+                            </div>`,
+        name:'user',
+        props: ['name', 'state'],
+        data: function () {
+            return{
+                isShowed: false,
+            }
+        },
+        methods:{
+            kickUser: function (user) {
+                this.$emit('user_kicked', user);
+            },
+        }
+    })
+
     var appUsers = new Vue({
         el: "#appUsers",
         data: {
-            users: [],
-            booleansOptions: [false, false, false, false, false, false],
+            users: ['Clément Couderc', 'Charline Pascal', 'Vladimir Lemarché', 'Djianni Orru-Nowicki', 'Patrice Lagard', 'Marc Lachaise'],
+            states: ['active', 'active', 'active', 'away', 'away', 'inactive']
         },
         methods: {
             createUser : function (name) {
-                this.booleansOptions.push(false);
-
-                let user = `<div class="user-span">
-                                <div class="user-options" v-if="booleansOptions[${this.users.length}]" @close="booleansOptions.splice(${this.users.length}, 1, false)">
-                                    <i class="fas fa-angle-down" aria-hidden="true" @click="booleansOptions.splice(${this.users.length}, 1, false)"></i>
-                                    <label for="Privileges">Privilèges</label>
-                                    <input type="checkbox" id="Privileges" name="Privileges">
-                                    <p class="kickuser" @click="">Exclure</p>
-                                </div>
-                                <p class="user-name user-active" @click="booleansOptions.splice(${this.users.length}, 1, true)" v-bind:class="{ 'user-selected': booleansOptions[${this.users.length}] }">${name}</p>
-                            </div>`;
-                this.users.push(user);
+                this.users.push(name);
+            },
+            deleteUser : function (name) {
+                var index = this.users.indexOf(name);
+                if (index !== -1){
+                    this.users.splice(index, 1);
+                    this.states.splice(index, 1);
+                }
             },
         },
-
-
     })
-
-
 </script>
 
 </body>
