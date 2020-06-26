@@ -13,16 +13,38 @@
 </head>
 <body class="animate__fadeIn animate__animated">
 <main>
-    <section class="left-panel">
+    <section class="left-panel" id="app">
         <div class="top-buttons">
-            <span class="button-panel">
+            <span v-on:click="toggleClicksChat" v-bind:class="toggleChatPanel ? '' : 'button-panel-inactive'" class="button-panel">
                 <i class="fa fa-comments" aria-hidden="true"></i>
             </span>
-            <span class="button-panel">
+            <span v-on:click="toggleClicksFile" v-bind:class="toggleFilePanel ? '' : 'button-panel-inactive'" class="button-panel">
                 <i class="fa fa-file" aria-hidden="true"></i>
             </span>
         </div>
-        <div class="chat" id="app">
+        <div v-if="toggleFilePanel" class="file-panel">
+            <div class="file-bar">
+                <label class="file-bar-button" for="file-upload"><i class="fas fa-plus"></i> Ajouter un fichier <input type="file" id="file-upload"></label>
+                <a class="file-bar-button" href="#"><i class="fas fa-download"></i> Télécharger le cours entier</a>
+            </div>
+            <div class="file-content">
+                <div class="file-info-menu">
+                    <p>Nom <i class="fas fa-angle-down"></i></p>
+                    <p>Date du fichier <i class="fas fa-angle-down"></i></p>
+                </div>
+                <div class="file-info">
+                    <p class="file-info-title">Dummy_file.pdf</p>
+                    <p class="file-info-date">23/06/2020</p>
+                    <p class="file-info-icon"><i class="fas fa-download"></i></p>
+                </div>
+                <div class="file-info">
+                    <p class="file-info-title">Dummy_file.pdf</p>
+                    <p class="file-info-date">23/06/2020</p>
+                    <p class="file-info-icon"><i class="fas fa-download"></i></p>
+                </div>
+            </div>
+        </div>
+        <div v-if="toggleChatPanel" class="chat">
             <div class="chat-content" id="chat-content">
                 <div class="chat-message">
                     <p class="chat-message-user">Djianni Orru-Nowicki<span class="chat-message-time">Hier à 14:30</span></p>
@@ -92,6 +114,8 @@
         data: {
             user: "Clément Couderc",
             messages: [],
+            toggleFilePanel: false,
+            toggleChatPanel: true,
         },
         methods:{
             sendMessage: function(){
@@ -103,6 +127,14 @@
                 this.messages.push(message);
                 document.getElementById('send-chat').value = "";
             },
+            toggleClicksChat: function () {
+                this.toggleFilePanel = false;
+                this.toggleChatPanel = true;
+            },
+            toggleClicksFile: function () {
+                this.toggleFilePanel = true;
+                this.toggleChatPanel = false;
+            }
         },
         updated(){
             let container = this.$el.querySelector("#chat-content");
