@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Cours GL40</title>
     <link href="style/main.css" rel="stylesheet">
-    <link href="style/chat-GL40.css" rel="stylesheet">
+    <link href="style/chat.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -12,17 +12,42 @@
 </head>
 <body class="animate__fadeIn animate__animated">
 <main>
-    <section class="left-panel">
+    <section class="left-panel" id="appChat">
         <div class="left-buttons">
             <a class="far fa-arrow-alt-circle-left return-button" href="menu.html"></a>
-            <span class="button-panel">
+            <span v-on:click="toggleClicksChat" v-bind:class="toggleChatPanel ? '' : 'button-panel-inactive'" class="button-panel">
                 <i aria-hidden="true" class="fa fa-comments"></i>
             </span>
-            <a href="main-chat-files.html" class="button-panel">
+            <span v-on:click="toggleClicksFile" v-bind:class="toggleFilePanel ? '' : 'button-panel-inactive'" class="button-panel">
                 <i aria-hidden="true" class="fa fa-file"></i>
-            </a>
+            </span>
         </div>
-        <div class="chat" id="appChat">
+        <div v-if="toggleFilePanel" class="file-panel">
+            <div class="chat-title">
+                <h1>GL40</h1>
+            </div>
+            <div class="file-bar">
+                <label class="file-bar-button" for="file-upload"><i class="fas fa-plus"></i> Ajouter un fichier <input type="file" id="file-upload"></label>
+                <a class="file-bar-button" href="#"><i class="fas fa-download"></i> Télécharger le cours entier</a>
+            </div>
+            <div class="file-content">
+                <div class="file-info-menu">
+                    <p>Nom <i class="fas fa-angle-down"></i></p>
+                    <p>Date du fichier <i class="fas fa-angle-down"></i></p>
+                </div>
+                <div class="file-info">
+                    <p class="file-info-title">Dummy_file.pdf</p>
+                    <p class="file-info-date">23/06/2020</p>
+                    <p class="file-info-icon"><i class="fas fa-download"></i></p>
+                </div>
+                <div class="file-info">
+                    <p class="file-info-title">Dummy_file.pdf</p>
+                    <p class="file-info-date">23/06/2020</p>
+                    <p class="file-info-icon"><i class="fas fa-download"></i></p>
+                </div>
+            </div>
+        </div>
+        <div v-if="toggleChatPanel" class="chat">
             <div class="chat-title">
                 <h1>GL40</h1>
             </div>
@@ -158,6 +183,8 @@
         data: {
             user: "Clément Couderc",
             messages: [],
+            toggleFilePanel: false,
+            toggleChatPanel: true,
         },
         methods: {
             sendMessage: function () {
@@ -169,6 +196,14 @@
                 this.messages.push(message);
                 document.getElementById('send-chat').value = "";
             },
+            toggleClicksChat: function () {
+                this.toggleFilePanel = false;
+                this.toggleChatPanel = true;
+            },
+            toggleClicksFile: function () {
+                this.toggleFilePanel = true;
+                this.toggleChatPanel = false;
+            }
         },
         updated() {
             let container = this.$el.querySelector("#chat-content");
