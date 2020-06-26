@@ -34,6 +34,7 @@ main {
 }
 
 .button-panel-inactive {
+    cursor: pointer;
     background: #192360;
     box-shadow: -1px 2px 4px 3px rgba(0, 0, 0, 0.2) inset;
 }
@@ -57,10 +58,6 @@ main {
 .chat-title {
     height: 4vh;
     width: 100%;
-}
-
-.chat-bottom {
-
 }
 
 .send-area {
@@ -225,12 +222,12 @@ main {
     margin: 0.5vh;
 }
 
-.fa-angle-down{
+.fa-times{
     margin-left: 87%;
     color: #ffffff;
 }
 
-.fa-angle-down:hover{
+.fa-times:hover{
     color: #647780;
 }
 
