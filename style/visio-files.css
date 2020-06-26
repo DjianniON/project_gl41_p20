@@ -37,13 +37,62 @@ main {
 }
 
 .chat {
-    height: 100%;
+    display: none;
 }
 
-.chat-content {
+.file-panel {
     background: #374a57;
-    height: 85vh;
+    height: 90vh;
+}
+
+.file-content {
+    height: 90%;
     overflow-y: scroll;
+}
+
+.file-bar {
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.file-bar-button {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    margin: 2%;
+    display: block;
+    cursor: pointer;
+}
+
+.file-info, .file-info-menu {
+    display: grid;
+    grid-template-columns: 0.5fr 3fr 0.5fr;
+    text-align: center;
+    align-items: center;
+    padding-right: 2%;
+}
+
+.file-info-icon {
+    display: none;
+}
+
+.file-info:hover > .file-info-icon {
+    display: block;
+    cursor: pointer;
+    text-align: right;
+}
+
+.file-info:nth-child(even) {
+    background: #253c57;
+}
+
+.file-info:hover {
+    font-weight: bold;
+    background-color: #415dff;
+    animation-name: fadeIn;
+    animation-duration: 0.25s;
 }
 
 .send-area {
@@ -129,54 +178,6 @@ main {
     color: #8e0202;
 }
 
-.send-input{
-    display: block;
-    width: 90%;
-    height: 60%;
-    padding: 0.60em 0.1em 0.25em;
-    border: none;
-    border:0;
-    background: transparent;
-    margin-left: 3%;
-}
-
-.send-input:focus {
-    outline: none;
-    color: #ffffff;
-}
-
-.send-input::placeholder {
-    color: #edfdff;
-}
-
-.chat-message {
-    padding: 0.3em 0.5em;
-}
-
-.chat-message:nth-child(odd) {
-    background: #253c57;
-}
-
-.chat-message-0{
-    padding: 0.3em 0.5em;
-}
-
-.chat-message-1{
-    padding: 0.3em 0.5em;
-    background: #253c57;
-}
-
-.chat-message-user {
-    font-weight: bolder;
-    font-size: 0.9em;
-}
-
-.chat-message-time {
-    font-size: 0.6em;
-    margin-left: 1.5em;
-    font-weight: lighter;
-}
-
 .return-button::before {
     display: none;
 }
@@ -195,5 +196,13 @@ main {
 
 .visio-video:hover > .return-button::before {
     display: block;
+}
+
+.button-panel {
+    color: white;
+    text-decoration: none;
+}
+#file-upload  {
+    display: none;
 }
 

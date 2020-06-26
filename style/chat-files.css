@@ -237,7 +237,7 @@ main {
     display: none;
 }
 
-.fa-comments { /* modification statique pour les files*/
+.button-panel { /* modification statique pour les files*/
     color: white;
     text-decoration: none;
 }
